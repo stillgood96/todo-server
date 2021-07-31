@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 스프링부트 REST API 사용과 JPA기능 사용을 위한.
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // 서버 생성을 위한 인메모리 방식인 h2 데이터베이스 사용
+    runtimeOnly 'com.h2database:h2'
+
+    // lombok
+    annotationProcessor("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok")
+}
+
+test {
+    useJUnitPlatform()
+}
